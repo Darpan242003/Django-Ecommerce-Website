@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="pageCentre">
+    <div class="regForm">
+        <h2>Register Here</h2>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <label for="">First Name</label>
+            <input type="text" name="first_name" id=""><br>
+
+            <label for="">Last Name</label>
+            <input type="text" name="last_name" id=""><br>
+
+            <label for="">Email</label>
+            <input type="text" name="email" id=""><br>
+
+            <label for="">Username</label>
+            <input type="text" name="username" id=""><br>
+
+            <label for="">Password</label>
+            <input type="password" name="password" id=""><br>
+
+            <label for="">Confirm Password</label>
+            <input type="password" name="" id=""><br>
+
+            <div class="product-btn">
+                <input type="submit" name="" id="" class="btn">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="pageCentre">
+    <div class="regForm">
+        <h1>Profile</h1>
+        <div class="profileInfo">
+            <p>Username = {{ request.user }}</p>
+            <p>Verified = {{ request.user.is_authenticated }}</p>
+            <p>Firstname = {{ request.user.first_name }}</p>
+            <p>Lastname = {{ request.user.last_name }}</p>
+            <p>Email = {{ request.user.email }}</p>
+            <p>Username = {{ request.user.username }}</p>
+
+            <a href="">Update Profile</a>
+            <a href="">Change Password</a>
+            <a href="{% url "logout" %}">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

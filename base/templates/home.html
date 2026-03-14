@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+
+<div class="sub-nav">
+    {% for i in all_category %}
+    <form action="">
+        <input type="submit" value="{{ i }}" name="cat" class="category-btn">
+    </form>
+
+    {% endfor %}
+
+    <form action="">
+        <input type="submit" name="trending" value="Trending">
+    </form>
+
+    <form action="">
+        <input type="submit" name="offer" value="Offers">
+    </form>
+
+    <form action="">
+        <input type="submit" value="All Products" name="all_products" class="category-btn">
+    </form>
+</div>
+
+{% comment %} <img src="{% static "images/uploads/laptop.jpeg" %}" alt=""> {% endcomment %}
+
+<center class="allProducts">
+    {% if data %}
+    {% for i in data %}
+    <div class="product">
+        {% if trend %}
+        <div class="trendBadge">Now trending!!!</div>
+        {% endif %}
+        {% if offer %}
+        <div class="offerBadge">Flat 50% Off</div>
+        {% endif %}
+        <div class="img-container">
+            <img src="{{ i.product_image.url }}" alt="">
+        </div>
+
+        <div class="product-text">
+            <h4>{{ i.product_category }}</h4>
+            <h4>{{ i.product_name }}</h4>
+            <h4>{{ i.product_desc }}</h4>
+            <h4>{{ i.product_price }}</h4>
+        </div>
+
+        <div class="product-btn">
+            {% comment %} <input type="submit" name="" value="Add to Cart"> {% endcomment %}
+            <a href="{% url "addtocart" i.id %}" class="btn">Add to Cart</a>
+            <input type="submit" name="" value="Details" class="btn">
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>No Match Found</h2>
+    {% endif %}
+</center>
+{% endblock content %}

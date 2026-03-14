@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="pageCentre">
+    <div class="regForm">
+        <h1>Login</h1>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <label for="">Username</label>
+            <input type="text" name="username" id=""><br>
+
+            <label for="">Password</label>
+            <input type="password" name="password" id=""><br>
+
+            <div class="product-btn">
+                <input type="submit" name="" id="" class="btn">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

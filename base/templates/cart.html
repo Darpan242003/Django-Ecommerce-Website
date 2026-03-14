@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="cartProducts">
+    <center>
+        <h1>Cart</h1>
+    </center>
+    <div class="allProducts">
+        {% for p in cart_products %}
+        <div class="product">
+            {% if trend %}
+            <div class="trendBadge">Now trending!!!</div>
+            {% endif %}
+            {% if offer %}
+            <div class="offerBadge">Flat 50% Off</div>
+            {% endif %}
+            <div class="img-container">
+                <img src="{{ p.product_image.url }}" alt="">
+            </div>
+            <div class="product-text">
+                <h4>{{ p.product_category }}</h4>
+                <h4>{{ p.product_name }}</h4>
+                <h4>{{ p.product_desc }}</h4>
+                <h4>{{ p.product_price }}</h4>
+                <h4>{{ p.quantity }}</h4>
+                <h4>{{ p.total_price }}</h4>
+
+                <div class="product-btn">
+                    {% comment %} <input type="submit" name="" value="Add to Cart"> {% endcomment %}
+                    <a href="{% url "removefromcart" p.id %}" class="btn">Remove from Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <center>
+        <div class="cartSummary">
+            <h2>Total Amount: {{ TA }}</h2>
+        </div>
+        <a href="{% url "delivery_form" %}">Proceed to Checkout</a>
+    </center>
+</div>
+{% endblock content %}

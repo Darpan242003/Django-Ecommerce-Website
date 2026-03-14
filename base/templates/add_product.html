@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+{% block content %}
+<center>
+    <h1>Add Products</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">Product Category</label>
+        <select name="category_attr" id="">
+            <option value="" disabled selected>Select Category</option>
+                
+            {% for i in all_categories %}
+                <option value="{{ i.category_name }}">
+                    {{ i.category_name }}
+                </option>
+            {% endfor %}
+        </select><br>
+
+        <label for="">Product Name</label>
+        <input type="text" name="product_name" id=""><br>
+
+        <label for="">Product Desc</label>
+        <input type="text" name="product_desc" id=""><br>
+
+        <label for="">Product Price</label>
+        <input type="text" name="product_price" id=""><br>
+
+        <input type="file" name="product_image" id=""><br>
+
+        <input type="submit" name="" id="">
+    </form>
+</center>
+
+{% endblock content %}
+

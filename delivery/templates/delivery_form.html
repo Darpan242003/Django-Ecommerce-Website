@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="pageCentre">
+    <div class="regForm">
+        <h2>Enter Delivery Details</h2>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="product-btn">
+                <input type="submit" name="" id="" class="btn">
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr>
+
+{% for i in data %}
+
+<h4>{{ i.username }}// {{ i.customer_address }}</h4>
+
+{% endfor %}
+
+{% endblock content %}
