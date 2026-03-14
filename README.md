@@ -27,10 +27,9 @@ Version Control: Git & GitHub
 
 ecommerce-project/
 │
-├── products/        # Product management app
-├── orders/          # Order processing logic
-├── users/           # Authentication system
-├── cart/            # Shopping cart functionality
+├── base/        # Product management app and Shopping cart functionality
+├── delivery/          # Order processing logic 
+├── user_auth/           # Authentication system
 ├── templates/       # HTML templates
 ├── static/          # CSS and assets
 ├── manage.py        # Django project manager
